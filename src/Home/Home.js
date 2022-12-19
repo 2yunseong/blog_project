@@ -1,3 +1,4 @@
+import GitHubCalendar from 'react-github-calendar';
 import styled from 'styled-components';
 import profileImg from './img/profile_image.png';
 const ProfileContainer = styled.div``;
@@ -18,6 +19,8 @@ const UserName = styled.h3``;
 
 const Introduction = styled.p``;
 
+const Title2 = styled.h2``;
+
 const Home = () => {
   return (
     <ProfileContainer>
@@ -30,6 +33,9 @@ const Home = () => {
           </Introduction>
         </ProfileInfo>
       </Profile>
+      <Title2>Github Contribution</Title2>
+      <GitHubCalendar username='2yunseong' />
+      <Title2>Recent Post</Title2>
     </ProfileContainer>
   );
 };
