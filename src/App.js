@@ -2,8 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 import Home from './Home/Home';
 import Portfolio from './Portfolio';
-import Techs from './Techs';
-import Activities from './Activities';
+import PostList from './Posts/PostList';
 
 function App() {
   return (
@@ -11,8 +10,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path='/' element={<Home />} />
         <Route path='/portfolio' element={<Portfolio />} />
-        <Route path='/tech' element={<Techs />} />
-        <Route path='/activity' element={<Activities />} />
+        <Route path='/posts' element={<PostList />} />
       </Route>
     </Routes>
   );

@@ -9,8 +9,7 @@ const Header = () => {
       <NavLink to='/'>Yunseong.Devlog</NavLink>
       <NavLink to='/'>Profile</NavLink>
       <NavLink to='/portfolio'>Poftfolio</NavLink>
-      <NavLink to='/tech'>Tech</NavLink>
-      <NavLink to='/activity'>activities</NavLink>
+      <NavLink to='/posts'>Post</NavLink>
     </HeaderContainer>
   );
 };
