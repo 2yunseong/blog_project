@@ -1,6 +1,9 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import styled from 'styled-components';
 import profileImg from './img/profile_image.png';
+import RecentPosts from './RecentPosts';
 const ProfileContainer = styled.div``;
 
 const Profile = styled.div`
@@ -22,20 +25,31 @@ const Introduction = styled.p``;
 const Title2 = styled.h2``;
 
 const Home = () => {
+  const [profile, setProfile] = useState({});
+
+  useEffect(() => {
+    axios.get(`/user/profile?id=1`).then((res) => {
+      setProfile(() => {
+        return res.data;
+      });
+    });
+  }, []);
+
   return (
     <ProfileContainer>
       <Profile>
         <ProfileImg src={profileImg} />
         <ProfileInfo>
-          <UserName>이윤성(@2yunseong)</UserName>
-          <Introduction>
-            안녕하세요, FE 개발자를 꿈꾸는 이윤성입니다.
-          </Introduction>
+          <UserName>
+            {profile.name}(@{profile.githubName})
+          </UserName>
+          <Introduction>{profile.introduction}</Introduction>
         </ProfileInfo>
       </Profile>
       <Title2>Github Contribution</Title2>
-      <GitHubCalendar username='2yunseong' />
+      {profile.githubName && <GitHubCalendar username={profile.githubName} />}
       <Title2>Recent Post</Title2>
+      <RecentPosts />
     </ProfileContainer>
   );
 };
