@@ -2,15 +2,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import styled from 'styled-components';
+
+import MainContainer from '../styles/MainContainer';
 import profileImg from './img/profile_image.png';
 import RecentPosts from './RecentPosts';
 
-const ProfileContainer = styled.div`
-  max-width: 1400px;
-  width: 900px;
-  min-width: 850px;
-  margin: 5rem auto;
-`;
+const ProfileContainer = styled(MainContainer)``;
 
 const Profile = styled.div`
   display: flex;
