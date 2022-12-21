@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const PostContainer = styled.div``;
+const PostContainer = styled.div`
+  margin: 0 auto;
+`;
 
 const Title = styled.h2``;
 

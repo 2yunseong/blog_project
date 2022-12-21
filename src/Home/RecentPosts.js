@@ -3,7 +3,10 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Post from './Post';
 
-const RecentPostContainer = styled.div``;
+const RecentPostContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const RecentPosts = () => {
   const [recentPosts, setRecentPosts] = useState([]);
