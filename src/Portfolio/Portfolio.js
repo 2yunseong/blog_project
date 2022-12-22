@@ -1,13 +1,23 @@
+import styled from 'styled-components';
+
+import MainContainer from '../styles/MainContainer';
+import './Portfolio.module.scss';
+
+const PortfolioContainer = styled(MainContainer)``;
+
 const Portfolio = () => {
   return (
-    <div>
-      <h2>Portfolio</h2>
+    <PortfolioContainer>
+      <h1>Portfolio</h1>
       <h3>기술 스택</h3>
       <ul>
-        <li>react</li>
-        <li>javascript</li>
-        <li>swift</li>
-        <li>java</li>
+        <li>Javascript</li>
+        <ul>
+          <li>react</li>
+        </ul>
+        <li>Swift</li>
+        <li>Java</li>
+        <li>Python</li>
       </ul>
       <h3>대외활동 및 수상내역</h3>
       <ul>
@@ -21,7 +31,7 @@ const Portfolio = () => {
       <h4>에코노 냉장고</h4>
       <h4>EggMeet</h4>
       <h4>T-econo</h4>
-    </div>
+    </PortfolioContainer>
   );
 };
 
