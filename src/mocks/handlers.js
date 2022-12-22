@@ -1,6 +1,7 @@
 import { rest } from 'msw';
 import recentPosts from './data/recentPosts';
 import profiles from './data/profiles';
+import posts from './data/posts';
 
 export const handlers = [
   // 최신 글 가져오기
@@ -17,6 +18,10 @@ export const handlers = [
 
   rest.get('/post', (req, res, ctx) => {
     const postId = req.url.searchParams.get('page');
+    const post = posts.filter((p) => p.id == postId)[0];
+
+    console.log(post);
+    return res(ctx.status(200), ctx.json(post));
   }),
 
   rest.get('/comment', (req, res, ctx) => {}),
