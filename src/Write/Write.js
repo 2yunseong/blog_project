@@ -4,6 +4,8 @@ import { Editor } from '@toast-ui/react-editor';
 import styled from 'styled-components';
 
 import MainContainer from '../styles/MainContainer';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const WriteContainer = styled(MainContainer)``;
 
@@ -53,13 +55,31 @@ const Footer = styled.div`
 const Write = () => {
   const writeRef = useRef();
   const [title, setTitle] = useState('');
+  const navigate = useNavigate();
 
   const onChange = ({ target: { value } }) => {
     setTitle(() => value);
   };
   const onSubmit = () => {
-    console.log(title);
-    console.log(writeRef.current.getInstance().getHTML());
+    const date = new Date();
+    const dto = {
+      timeStamp: date.toLocaleDateString(),
+      title,
+      content: writeRef.current.getInstance().getHTML(),
+    };
+
+    axios
+      .post('/post', dto)
+      .then((res) => {
+        console.log(res);
+      })
+      .then((data) => {
+        alert('작성을 완료했습니다.');
+        navigate(-1);
+      })
+      .catch((error) => {
+        alert('알수 없는 에러가 발생.');
+      });
   };
   return (
     <WriteContainer>
@@ -76,7 +96,7 @@ const Write = () => {
         height='30rem'
         usageStatistics={false}
         ref={writeRef}
-        initialValue={''}
+        initialValue={'여기에 입력하세요.'}
       />
       <Footer>
         <SubmitBtn onClick={onSubmit}>제출</SubmitBtn>
