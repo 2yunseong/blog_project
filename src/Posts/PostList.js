@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+
+import MainContainer from '../styles/MainContainer';
 import Post from './Post';
 
-const PostListContainer = styled.div``;
+const PostListContainer = styled(MainContainer)``;
 
 const PostList = () => {
   const [recentPosts, setRecentPosts] = useState([]);
@@ -14,6 +16,7 @@ const PostList = () => {
   }, []);
   return (
     <PostListContainer>
+      <h1>Post</h1>
       {recentPosts.map((recentPost) => (
         <Post
           key={recentPost.id}
