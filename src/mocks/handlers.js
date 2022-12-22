@@ -14,4 +14,14 @@ export const handlers = [
     const profile = profiles.filter((profile) => profile.id == userId)[0];
     return res(ctx.status(200), ctx.json(profile));
   }),
+
+  rest.get('/post', (req, res, ctx) => {
+    const postId = req.url.searchParams.get('page');
+  }),
+
+  rest.get('/comment', (req, res, ctx) => {}),
+
+  rest.post('/comment', (req, res, ctx) => {}),
+
+  rest.post('/post', (req, res, ctx) => {}),
 ];
