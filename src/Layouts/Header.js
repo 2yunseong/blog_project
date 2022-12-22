@@ -47,6 +47,9 @@ const Header = () => {
         <NavLink style={handleNavStyle} to='/posts'>
           Post
         </NavLink>
+        <NavLink style={handleNavStyle} to='/write'>
+          Write
+        </NavLink>
       </NavContainer>
     </HeaderContainer>
   );
