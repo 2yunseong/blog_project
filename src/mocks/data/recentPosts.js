@@ -1,4 +1,4 @@
-const date = new Date().toLocaleDateString;
+const date = new Date().toLocaleDateString();
 const recentPosts = [
   {
     id: 1,
