@@ -22,6 +22,7 @@ const RecentPosts = () => {
           title={recentPost.title}
           content={recentPost.content}
           key={recentPost.id}
+          pageId={recentPost.id}
         />
       ))}
     </RecentPostContainer>

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const PostContainer = styled.div`
@@ -9,6 +10,12 @@ const PostContainer = styled.div`
   border: 1px solid #eee;
   margin: 0 10px;
   padding: 1.5rem;
+  cursor: pointer;
+  box-shadow: 7px 4px 10px rgba(0, 0, 0, 0.15);
+  &:hover {
+    transform: scale(1.03);
+    transition: all ease-in 0.3s;
+  }
 `;
 
 const PostContent = styled.div`
@@ -16,9 +23,14 @@ const PostContent = styled.div`
   font-size: 0.8rem;
 `;
 
-const Post = ({ title, content }) => {
+const Post = ({ title, content, pageId }) => {
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate(`/post?page=${pageId}`);
+  };
   return (
-    <PostContainer>
+    <PostContainer onClick={onClick}>
       <h3>{title}</h3>
       <PostContent>{content}</PostContent>
     </PostContainer>
