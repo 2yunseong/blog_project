@@ -1,7 +1,8 @@
 import '@toast-ui/editor/dist/toastui-editor.css';
-
+import { useRef, useState } from 'react';
 import { Editor } from '@toast-ui/react-editor';
 import styled from 'styled-components';
+
 import MainContainer from '../styles/MainContainer';
 
 const WriteContainer = styled(MainContainer)``;
@@ -50,16 +51,35 @@ const Footer = styled.div`
 `;
 
 const Write = () => {
+  const writeRef = useRef();
+  const [title, setTitle] = useState('');
+
+  const onChange = ({ target: { value } }) => {
+    setTitle(() => value);
+  };
+  const onSubmit = () => {
+    console.log(title);
+    console.log(writeRef.current.getInstance().getHTML());
+  };
   return (
     <WriteContainer>
       <h1>글 쓰기</h1>
       <TitleContainer>
         <TitleLabel>제목 :</TitleLabel>
-        <TitleInput placeholder='제목을 입력하세요.' />
+        <TitleInput
+          placeholder='제목을 입력하세요.'
+          value={title}
+          onChange={onChange}
+        />
       </TitleContainer>
-      <Editor height='30rem' usageStatistics={false} />
+      <Editor
+        height='30rem'
+        usageStatistics={false}
+        ref={writeRef}
+        initialValue={''}
+      />
       <Footer>
-        <SubmitBtn>제출</SubmitBtn>
+        <SubmitBtn onClick={onSubmit}>제출</SubmitBtn>
       </Footer>
     </WriteContainer>
   );
