@@ -5,6 +5,8 @@ import qs from 'qs';
 import { useEffect, useState } from 'react';
 import { Viewer } from '@toast-ui/react-editor';
 
+import Comment from './Comment';
+
 const PostContainer = styled(MainContainer)``;
 const Title = styled.h1``;
 const TimeContainer = styled.div`
@@ -13,6 +15,7 @@ const TimeContainer = styled.div`
   color: #888;
   font-size: 1rem;
 `;
+
 const Post = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -35,6 +38,8 @@ const Post = () => {
       <hr />
       <TimeContainer>{timeStamp}</TimeContainer>
       {content && <Viewer initialValue={content} />}
+      <hr />
+      <Comment id={query.page} />
     </PostContainer>
   );
 };
