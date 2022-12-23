@@ -45,5 +45,13 @@ export const handlers = [
     return res(ctx.status(200), ctx.json(commentList));
   }),
 
-  rest.post('/comment', (req, res, ctx) => {}),
+  rest.post('/comment', (req, res, ctx) => {
+    const pageId = req.url.searchParams.get('page');
+    const commentList = comments.filter((c) => c.id == pageId)[0].comment;
+    commentList.push({
+      cid: commentList.length + 1,
+      ...req.body,
+    });
+    return res(ctx.status(200));
+  }),
 ];
