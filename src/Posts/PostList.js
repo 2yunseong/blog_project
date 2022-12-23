@@ -19,8 +19,10 @@ const PostList = () => {
       <h1>Post</h1>
       {recentPosts.map((recentPost) => (
         <Post
+          pageId={recentPost.id}
           key={recentPost.id}
           title={recentPost.title}
+          timeStamp={recentPost.timeStamp}
           content={recentPost.title}
         />
       ))}
