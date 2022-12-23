@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import MainContainer from '../styles/MainContainer';
 import profileImg from './img/profile_image.png';
 import RecentPosts from './RecentPosts';
+import { Title2 } from '../styles/Title2';
 
 const ProfileContainer = styled(MainContainer)``;
 
@@ -26,13 +27,9 @@ const ProfileInfo = styled.div`
   margin-left: 2rem;
 `;
 
-const UserName = styled.h2``;
-
 const Introduction = styled.p`
   color: #888;
 `;
-
-const Title2 = styled.h2``;
 
 const ContributionContainer = styled.div`
   margin-bottom: 2rem;
@@ -54,9 +51,9 @@ const Home = () => {
       <Profile>
         <ProfileImg src={profileImg} />
         <ProfileInfo>
-          <UserName>
+          <Title2>
             {profile.name}(@{profile.githubName})
-          </UserName>
+          </Title2>
           <Introduction>{profile.introduction}</Introduction>
         </ProfileInfo>
       </Profile>
