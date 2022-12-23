@@ -8,7 +8,7 @@ const PostContainer = styled.div`
   width: 220px;
   border-radius: 20px;
   border: 1px solid #eee;
-  margin: 0 10px;
+  margin: 10px;
   padding: 1.5rem;
   cursor: pointer;
   box-shadow: 7px 4px 10px rgba(0, 0, 0, 0.15);
