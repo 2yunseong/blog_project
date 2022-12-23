@@ -1,6 +1,7 @@
 import { rest } from 'msw';
 import profiles from './data/profiles';
 import posts from './data/posts';
+import comments from './data/comments';
 
 export const handlers = [
   // 최신 글 가져오기
@@ -33,7 +34,11 @@ export const handlers = [
     return res(ctx.status(200));
   }),
 
-  rest.get('/comment', (req, res, ctx) => {}),
+  rest.get('/comment', (req, res, ctx) => {
+    const pageId = req.url.searchParams.get('page');
+    const commentList = comments.filter((c) => c.id == pageId)[0].comment;
+    return res(ctx.status(200), ctx.json(commentList));
+  }),
 
   rest.post('/comment', (req, res, ctx) => {}),
 ];
