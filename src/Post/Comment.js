@@ -15,10 +15,10 @@ const UserInfo = styled.div`
 
 const CommentTextArea = styled.textarea`
   flex: 1;
+  height: 5rem;
 `;
 
 const Input = styled.input`
-  margin: 1rem;
   flex: 1;
 `;
 
@@ -29,6 +29,8 @@ const Label = styled.span`
 const InputContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 0.5rem;
+  margin-right: 0.3rem;
 `;
 
 const CommentComponent = styled.div`
