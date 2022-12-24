@@ -32,7 +32,9 @@ const Post = ({ title, content, pageId }) => {
   return (
     <PostContainer onClick={onClick}>
       <h3>{title}</h3>
-      <PostContent>{content}</PostContent>
+      <PostContent>
+        {content.slice(0, content.length > 200 ? 200 : content.length)}
+      </PostContent>
     </PostContainer>
   );
 };
