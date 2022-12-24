@@ -29,13 +29,13 @@ export const handlers = [
       id: posts.length + 1,
       ...req.body,
     };
-
-    console.log(resDto);
-    posts.push(resDto);
     comments.push({
       id: posts.length + 1,
       comment: [],
     });
+    console.log(resDto);
+    posts.push(resDto);
+
     return res(ctx.status(200));
   }),
 
